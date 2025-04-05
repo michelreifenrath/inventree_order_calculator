@@ -5,9 +5,10 @@ from pathlib import Path
 this_directory = Path(__file__).parent
 long_description = (this_directory / "README.md").read_text()
 
-# Read the contents of requirements.txt
-with open('requirements.txt') as f:
-    requirements = f.read().splitlines()
+# requirements.txt is not needed as dependencies are provided by InvenTree itself
+# If you add external dependencies later, create requirements.txt and uncomment below
+# with open('requirements.txt') as f:
+#    requirements = f.read().splitlines()
 
 setuptools.setup(
     name="inventree-order-calculator",
@@ -21,7 +22,7 @@ setuptools.setup(
     url="<plugin-repo-url>", # Optional: URL to the plugin's repository
     license="MIT",
     packages=setuptools.find_packages(),
-    install_requires=requirements, # Install dependencies from requirements.txt
+    # install_requires=requirements, # No external requirements for now
     setup_requires=[
         "wheel",
         "setuptools",
