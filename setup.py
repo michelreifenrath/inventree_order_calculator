@@ -19,7 +19,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     keywords="inventree inventory bom calculator plugin",
-    url="<plugin-repo-url>", # Optional: URL to the plugin's repository
+    url="https://github.com/michelreifenrath/inventree_order_calculator.git",
     license="MIT",
     packages=setuptools.find_packages(),
     # install_requires=requirements, # No external requirements for now
