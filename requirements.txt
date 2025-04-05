@@ -1,0 +1,2 @@
+# No external dependencies required for this plugin (yet).
+# Dependencies are handled by the InvenTree environment.
