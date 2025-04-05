@@ -1,0 +1,12 @@
+# Include the README and LICENSE files
+include README.md
+include LICENSE
+
+# Include all files in the templates directory
+recursive-include order_calculator/templates *
+
+# Include all files in the static directory
+recursive-include order_calculator/static *
+
+# Exclude compiled Python files
+global-exclude *.py[cod]
