@@ -41,28 +41,27 @@ class OrderCalculatorPlugin(UserInterfaceMixin, UrlsMixin, InvenTreePlugin):
         # Initialization code here if needed
 
     def get_ui_panels(self, request, context=None, **kwargs):
-        """Register UI panels for this plugin."""
-        panels = []
+        """Register UI panels for this plugin. (Not used for dashboard widgets)."""
+        return [] # Dashboard widgets are handled by get_ui_dashboard_items
 
-        # Check if the current view is the dashboard
-        # Note: The exact context key for the dashboard might need verification
-        # in newer InvenTree versions, but 'dashboard' is common.
-        view = context.get('view', '')
+    def get_ui_dashboard_items(self, request, context=None, **kwargs):
+        """Register dashboard items (widgets) for this plugin."""
+        widgets = []
 
-        if view == 'dashboard':
-            panels.append({
-                'key': 'order-calculator-widget',
-                'title': 'BOM Order Calculator',
-                'description': 'Calculate required components',
-                'icon': 'fas fa-calculator',
-                'feature_type': 'dashboard_widget', # Specify this is a dashboard widget
-                'source': self.plugin_static_file(
-                    'OrderCalculatorWidget.js:renderWidget' # Points to our JS file/function
-                ),
-                'context': {
-                    # Pass any initial context needed by the React component
-                    'apiUrl': '/order-calculator/calculate/', # Pass API URL to frontend
-                }
-            })
+        # Note: No need to check view context here, this method is specifically for dashboard items.
+        widgets.append({
+            'key': 'order-calculator-widget',
+            'title': 'BOM Order Calculator',
+            'description': 'Calculate required components',
+            'icon': 'fas fa-calculator',
+            'feature_type': 'dashboard_widget', # Specify this is a dashboard widget
+            'source': self.plugin_static_file(
+                'OrderCalculatorWidget.js:renderWidget' # Points to our JS file/function
+            ),
+            'context': {
+                # Pass any initial context needed by the React component
+                'apiUrl': '/order-calculator/calculate/', # Pass API URL to frontend
+            }
+        })
 
-        return panels
+        return widgets
