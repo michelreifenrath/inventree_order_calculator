@@ -12,7 +12,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setuptools.setup(
     name="inventree-order-calculator",
-    version="0.1.0", # Match version in plugin.py
+    version="0.1.1", # Match version in plugin.py
     author="Cline (AI Assistant)", # Or your name/org
     author_email="user@example.com", # Replace with actual email
     description="InvenTree plugin: BOM Order Calculator",
